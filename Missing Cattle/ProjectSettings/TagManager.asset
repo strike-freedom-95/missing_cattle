@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cattle
   - Ground
+  - Beam
   layers:
   - Default
   - TransparentFX
