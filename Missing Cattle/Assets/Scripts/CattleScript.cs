@@ -33,6 +33,11 @@ public class CattleScript : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         isBeamed = false;
+        if (collision.gameObject.tag == "Water")
+        {
+            isBeamed = true;
+        }
+        
     }
 
     private void FixedUpdate()
@@ -40,7 +45,7 @@ public class CattleScript : MonoBehaviour
         if (isBeamed)
         {
             //transform.Translate(0, 2 * Time.deltaTime, 0);
-            cow.AddForce(new Vector2(0, 10));
+            cow.AddForce(new Vector2(0, 12));
         }
     }
 

@@ -21,8 +21,8 @@ public class GroundScript : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             GameOverScreen.gameObject.SetActive(true);
-            fireParticles.transform.position = collision.transform.position;
-            smokeParticles.transform.position = collision.transform.position;
+            fireParticles.transform.position = collision.transform.position + new Vector3(0, -0.8f, 100);
+            smokeParticles.transform.position = collision.transform.position + new Vector3(0, -0.8f, 100);
             fireParticles.Play();
             smokeParticles.Play();            
         }

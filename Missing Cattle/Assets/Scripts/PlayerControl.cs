@@ -6,12 +6,12 @@ public class PlayerControl : MonoBehaviour
 {
     float horizontalMove;
     float verticalMove;
-    float moveSpeed = 1.5f;
     bool isBeamActive = false;
 
     [SerializeField] Rigidbody2D player;
     [SerializeField] GameObject beam;
     [SerializeField] ParticleSystem BeamParticle;
+    [SerializeField] float moveSpeed = 1.5f;
 
     void Start()
     {
@@ -50,6 +50,14 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag == "Cattle" && isBeamActive)
         {
             BeamParticle.Play();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Water")
+        {
+            Destroy(gameObject);
         }
     }
 }
