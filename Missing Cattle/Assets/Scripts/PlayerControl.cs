@@ -37,12 +37,26 @@ public class PlayerControl : MonoBehaviour
             beam.SetActive(false);
             isBeamActive = false;
         }
+
+        if (Input.GetMouseButton(0))
+        {
+            beam.SetActive(true);
+            isBeamActive = true;
+            horizontalMove = 0;
+            verticalMove = 0;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            beam.SetActive(false);
+            isBeamActive = false;
+        }
         transform.Translate(horizontalMove, verticalMove, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Water")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Water" || collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
             Debug.Log("Game Over");
@@ -59,5 +73,10 @@ public class PlayerControl : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Bullet")
+        {
+            player.gravityScale = 1;
+        }
+
     }
 }

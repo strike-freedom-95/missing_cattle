@@ -28,6 +28,10 @@ public class CattleScript : MonoBehaviour
         {
             isBeamed = true;
         }
+        if (collision.gameObject.tag == "Bullet")
+        {
+            ChangeColor();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -37,7 +41,6 @@ public class CattleScript : MonoBehaviour
         {
             isBeamed = true;
         }
-        
     }
 
     private void FixedUpdate()

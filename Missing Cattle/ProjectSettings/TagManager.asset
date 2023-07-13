@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Beam
   - Water
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
