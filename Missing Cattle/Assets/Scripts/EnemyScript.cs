@@ -7,6 +7,7 @@ public class EnemyScript : MonoBehaviour
 {
     Animator animator;
     AudioSource audioSource;
+    CapsuleCollider2D capsuleCollider;
 
     [SerializeField] GameObject pivot;
 
@@ -14,12 +15,14 @@ public class EnemyScript : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag.Contains("Bomb"))
         {
+            capsuleCollider.enabled = false;
             audioSource.Play();
             Destroy(pivot);
             animator.SetBool("isTowerBombed", true);            
