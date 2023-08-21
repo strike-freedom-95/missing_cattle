@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4327855098578751657}
   - component: {fileID: 4327855098578751662}
   - component: {fileID: 4327855098578751656}
+  - component: {fileID: 488445433641433782}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Cattle
@@ -148,6 +149,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goreParticles: {fileID: 4327855099516532724}
+--- !u!95 &488445433641433782
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327855098578751661}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18e9a5cf4d244b445afb0949202c3a86, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4327855099516532731
 GameObject:
   m_ObjectHideFlags: 0

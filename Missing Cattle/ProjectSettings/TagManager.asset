@@ -10,6 +10,7 @@ TagManager:
   - Water
   - Enemy
   - Bullet
+  - Bomb
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 2680569793
+    locked: 0
+  - name: Cloud
+    uniqueID: 2137936479
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3754732991
+    locked: 0
+  - name: Rocks
+    uniqueID: 487204635
+    locked: 0
+  - name: Water
+    uniqueID: 995821923
+    locked: 0
+  - name: Player
+    uniqueID: 3504027591
     locked: 0

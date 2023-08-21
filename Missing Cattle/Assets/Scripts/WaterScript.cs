@@ -7,19 +7,30 @@ public class WaterScript : MonoBehaviour
 {
     [SerializeField] ParticleSystem waterParticles;
     // [SerializeField] TextMeshProUGUI gameOverText;
-    [SerializeField] Image GameOverScreen;
 
     private void Start()
     {
-        GameOverScreen.gameObject.SetActive(false);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        /*Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Player")
         {
-            GameOverScreen.gameObject.SetActive(true);
-            waterParticles.transform.position = collision.transform.position + new Vector3(0, -0.8f, 0);
+            // GameOverScreen.gameObject.SetActive(true);
+            waterParticles.transform.position = collision.transform.position;
+            waterParticles.Play();
+        }*/
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "Player")
+        {
+            // GameOverScreen.gameObject.SetActive(true);
+            waterParticles.transform.position = collision.transform.position;
             waterParticles.Play();
         }
     }

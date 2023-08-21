@@ -9750,7 +9750,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1649904860963429724}
   - component: {fileID: 1649904860963429727}
-  - component: {fileID: 1649904860963429725}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Enemy
@@ -9803,21 +9802,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.244129, y: 5.4180746}
   m_EdgeRadius: 0
---- !u!114 &1649904860963429725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649904860963429726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e323209d9171f45b12ac74bda97c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireParticles: {fileID: 1649904861420375615}
-  smokeParticles: {fileID: 1649904859927418610}
-  GameOverScreen: {fileID: 0}
 --- !u!1 &1649904861030939345
 GameObject:
   m_ObjectHideFlags: 0
@@ -9827,7 +9811,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1649904861030939350}
-  - component: {fileID: 1649904861030939351}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -9852,23 +9835,6 @@ Transform:
   m_Father: {fileID: 1649904860963429724}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1649904861030939351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649904861030939345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 495daf1e8d288b1428f4836cd78a40ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 603538738177493806, guid: 3e01ca533c4a6d047b1dda33dcf09882, type: 3}
-  gunPoint: {fileID: 1649904860370936527}
-  bulletForce: 5
-  timerLimit: 20
-  cannonFire: {fileID: 1649904860736372713}
 --- !u!1 &1649904861420375614
 GameObject:
   m_ObjectHideFlags: 0
