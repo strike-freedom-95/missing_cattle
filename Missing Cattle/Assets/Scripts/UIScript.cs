@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIScript : MonoBehaviour
 {
     TextMeshProUGUI gameOverText;
+
+    [SerializeField] Image tutorialsWindow;
     private void Start()
     {
-        //gameOverText = GetComponent<TextMeshProUGUI>();
-        //gameOverText.enabled = false;
-        //HideGameOverText();
+        tutorialsWindow.gameObject.SetActive(false);
+    }
+
+    public void OpenTutorialsWindow()
+    {
+        tutorialsWindow.gameObject.SetActive(true);
+    }
+
+    public void CloseTutorialsWindow()
+    {
+        tutorialsWindow.gameObject.SetActive(false);
     }
 
 

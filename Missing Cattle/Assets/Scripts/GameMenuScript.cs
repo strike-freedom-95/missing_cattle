@@ -15,12 +15,18 @@ public class GameMenuScript : MonoBehaviour
     int totalCows = 0;
     int cowTaken = 0;
     int cowDeath = 0;
+    float initTime = 100f;
+    float timerValue = 1;
+
 
     AudioSource audioSource;
 
     [SerializeField] Image gameMenu;
     [SerializeField] Image resultDisplay;
     [SerializeField] TextMeshProUGUI cowCountGUI;
+    [SerializeField] Slider timerSlider;
+    [SerializeField] float totalTime = 100f;
+    [SerializeField] TextMeshProUGUI scoreBoard;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,16 +36,21 @@ public class GameMenuScript : MonoBehaviour
         totalCows = GameObject.FindGameObjectsWithTag("Cattle").Length;
         audioSource = GetComponent<AudioSource>();
         Time.timeScale = 1.0f;
+        timerSlider.value = 1;
+        initTime = totalTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+        timerSlider.value = timerValue;
+        checkTime();
         cowCount = GameObject.FindGameObjectsWithTag("Cattle").Length;
-        string cowCountDisplay = cowCount.ToString() + "/" + totalCows.ToString();
+        string cowCountDisplay = PlayerPrefs.GetInt("Score", 0).ToString() + "/" + totalCows.ToString();
         cowCountGUI.text = cowCountDisplay;
+        scoreBoard.text = PlayerPrefs.GetInt("Score", 0).ToString();
 
-        if(cowCount == 0)
+        if (cowCount == 0)
         {
             ShowGameResult();
         }
@@ -96,5 +107,20 @@ public class GameMenuScript : MonoBehaviour
     void ShowGameResult()
     {
         GameComplete();
+    }
+
+    private void FixedUpdate()
+    {
+        initTime -= 0.1f;
+        // Debug.Log((float)(initTime / totalTime) * 100);
+        timerValue = (float)(initTime / totalTime);
+    }
+
+    void checkTime()
+    {
+        if(initTime <= 0)
+        {
+            SceneManager.LoadScene("Time Out");
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,6 +71,7 @@ public class CattleScript : MonoBehaviour
 
         if (collision.gameObject.tag == "Player" && isBeamed == false)
         {
+            // UpdateStoredCKData();
             CattleDeathSequence();
         }
 
@@ -99,6 +101,4 @@ public class CattleScript : MonoBehaviour
         // ChangeColor();
         Destroy(gameObject, 1f);
     }
-
-
 }

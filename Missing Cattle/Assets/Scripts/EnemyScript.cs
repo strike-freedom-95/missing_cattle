@@ -23,7 +23,7 @@ public class EnemyScript : MonoBehaviour
             audioSource.Play();
             Destroy(pivot);
             animator.SetBool("isTowerBombed", true);            
-            Destroy(gameObject, 3);
+            Destroy(gameObject, 2);
         }
     }
 }

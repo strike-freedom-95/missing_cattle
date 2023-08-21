@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class PlayerControl : MonoBehaviour
     Animator myAnimator;
     bool isShipDead = false;
     int exitTimer = 0;
+    int bombIndex = 3;
+
+    int cattleSaved = 0;
+
+    public Image[] bombsAvailable;
 
     [SerializeField] Rigidbody2D player;
     [SerializeField] GameObject beam;
@@ -25,7 +31,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float timerLimit = 1f;
     [SerializeField] Rigidbody2D bomb;
     [SerializeField] Transform bombPoint;
-    [SerializeField] int bombCount = 2;
+    [SerializeField] int bombCount = 3;
 
     void Start()
     {
@@ -33,6 +39,7 @@ public class PlayerControl : MonoBehaviour
         soundSource = GetComponent<AudioSource>();
         myAnimator = GetComponent<Animator>();
         Cursor.visible = false;
+        PlayerPrefs.SetInt("Score", cattleSaved);
     }
 
     private void FixedUpdate()
@@ -58,21 +65,6 @@ public class PlayerControl : MonoBehaviour
             if (isShipHit)
             {
                 FreezeShipControls();
-            }
-
-
-            if (Input.GetKey(KeyCode.E))
-            {
-                beam.SetActive(true);
-                isBeamActive = true;
-                FreezeShipControls();
-                // PlayerSounds(0);
-            }
-
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                beam.SetActive(false);
-                isBeamActive = false;
             }
 
             if (Input.GetMouseButton(0))
@@ -104,6 +96,10 @@ public class PlayerControl : MonoBehaviour
         {
             var bombs = Instantiate(bomb, bombPoint.position, bombPoint.rotation);
             bombs.GetComponent<Rigidbody2D>().velocity = -bombPoint.up * 10f;
+            bombIndex--;
+            Debug.Log(bombIndex);
+            bombsAvailable[bombIndex].gameObject.SetActive(false);
+
         }
     }
 
@@ -127,8 +123,11 @@ public class PlayerControl : MonoBehaviour
         }
         if (collision.gameObject.tag == "Cattle" && isBeamActive)
         {
+            cattleSaved++;
             Debug.Log("cattle collected");
             PlayerSounds(1);
+            PlayerPrefs.SetInt("Score", cattleSaved);
+
             // Action when the player collects the Cattle, maybe some animations...?
         }
     }

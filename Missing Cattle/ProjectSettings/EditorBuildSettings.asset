@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Over.unity
     guid: 6992e0131c39a144cb1c6fe18d690e6f
   - enabled: 1
+    path: Assets/Scenes/Time Out.unity
+    guid: 9e3dd1daa2f2ca74b98c340806324b19
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
