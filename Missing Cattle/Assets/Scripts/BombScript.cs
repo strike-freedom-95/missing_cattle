@@ -12,9 +12,14 @@ public class BombScript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Contains("Cannon"))
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Cattle") 
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Awake()
+    {
+        Destroy(gameObject, 5f);
     }
 }

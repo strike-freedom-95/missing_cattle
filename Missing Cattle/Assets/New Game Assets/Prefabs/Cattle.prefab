@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4905135250711091468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71eb48e28f3d4c4c80e965b7ea9ded5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowSound: {fileID: 8300000, guid: 7692982af80a6e1488cbc5e86b58c158, type: 3}
+  cattleSound: {fileID: 8300000, guid: 66e47e3c46454fa439826acfb0dacbec, type: 3}
 --- !u!82 &-1085477797608011286
 AudioSource:
   m_ObjectHideFlags: 0

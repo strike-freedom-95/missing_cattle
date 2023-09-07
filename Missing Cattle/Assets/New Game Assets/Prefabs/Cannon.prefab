@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4187741183187436566}
   - component: {fileID: 4187741183187436565}
   - component: {fileID: 4187741183187436564}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gunfire Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4187741183719897441}
   - component: {fileID: 4187741183719897442}
   - component: {fileID: 4187741183719897443}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 4187741183939248981}
   - component: {fileID: 1960615018441311101}
   - component: {fileID: 1960615018441311102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cannon
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -415,6 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivot: {fileID: 4187741183719897447}
+  gunSound: {fileID: 8300000, guid: 5e485f1bb23b4894f9ddef23466b8c28, type: 3}
 --- !u!82 &1960615018441311102
 AudioSource:
   m_ObjectHideFlags: 0
@@ -425,7 +426,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5e485f1bb23b4894f9ddef23466b8c28, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -521,7 +522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4187741184320086972}
   - component: {fileID: 4187741184320086973}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4187741184462890513}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}

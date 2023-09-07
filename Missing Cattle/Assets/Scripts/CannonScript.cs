@@ -36,7 +36,7 @@ public class CannonScript : MonoBehaviour
             direction.Normalize();
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;            
 
-            if ((angle >= -90 && angle <= 90) /*|| (angle > -240 && angle < -270)*/)
+            if (angle >= -90 && angle <= 90)
             {
                 transform.rotation = Quaternion.Euler(Vector3.forward * angle);
                 if (distance < range)

@@ -43,7 +43,7 @@ public class UIScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Game Scene");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void QuitGame()

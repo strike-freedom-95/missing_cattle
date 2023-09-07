@@ -114,7 +114,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isCowKilled
+    m_ConditionEvent: isCattleDead
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 164789328479254258}
@@ -145,7 +145,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: isCowKilled
+  - m_Name: isCattleDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

@@ -24,7 +24,7 @@ public class GameOverScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("Game Scene");
+            SceneManager.LoadScene(PlayerPrefs.GetString("currentLevel", "Level 1"));
         }
     }
 }

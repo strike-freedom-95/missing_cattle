@@ -7,12 +7,12 @@ public class CattleScript : MonoBehaviour
 {
     bool isBeamed = false;
     Rigidbody2D cow;
-    float timer = 0;
+    // float timer = 0;
     Animator myAnimator;
     AudioSource myAudioSource;
     BoxCollider2D myBoxCollider;
 
-    [SerializeField] AudioClip cowSound;
+    [SerializeField] AudioClip cattleSound;
 
     // [SerializeField] ParticleSystem goreParticles;
 
@@ -69,9 +69,8 @@ public class CattleScript : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag == "Player" && isBeamed == false)
+        else if (collision.gameObject.tag == "Player" && !isBeamed)
         {
-            // UpdateStoredCKData();
             CattleDeathSequence();
         }
 
@@ -83,22 +82,22 @@ public class CattleScript : MonoBehaviour
 
     void ChangeColor()
     {
-        // goreParticles.Play();
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     void PlayCattleDeathSound()
     {
-        myAudioSource.PlayOneShot(cowSound);
+        AudioSource.PlayClipAtPoint(cattleSound, Camera.main.transform.position);
     }
 
     void CattleDeathSequence()
     {
-        myAnimator.SetBool("isCowKilled", true);
+        myAnimator.SetBool("isCattleDead", true);
         myBoxCollider.isTrigger = true;
         cow.gravityScale = 0;
+        cow.velocity = Vector2.zero;
+        cow.isKinematic = true;
         PlayCattleDeathSound();
-        // ChangeColor();
         Destroy(gameObject, 1f);
     }
 }

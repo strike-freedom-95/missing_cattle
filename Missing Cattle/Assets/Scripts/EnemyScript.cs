@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour
     CapsuleCollider2D capsuleCollider;
 
     [SerializeField] GameObject pivot;
+    [SerializeField] AudioClip gunSound;
 
     private void Start()
     {
@@ -19,14 +20,16 @@ public class EnemyScript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag.Contains("Bomb"))
+        Debug.Log(PlayerPrefs.GetInt("TurretDestroyed", 0));
+        if (collision.gameObject.tag.Contains("Bomb") || collision.gameObject.tag.Contains("Player"))
         {
+            PlayerPrefs.SetInt("TurretDestroyed", PlayerPrefs.GetInt("TurretDestroyed", 0) + 1);
             capsuleCollider.enabled = false;
-            audioSource.Play();
+            AudioSource.PlayClipAtPoint(gunSound, Camera.main.transform.position);
+            // audioSource.Play();
             Destroy(pivot);
-            animator.SetBool("isTowerBombed", true);            
-            Destroy(gameObject, 2);
+            animator.SetBool("isTowerBombed", true);
+            Destroy(gameObject, 0.5f);
         }
     }
 }
