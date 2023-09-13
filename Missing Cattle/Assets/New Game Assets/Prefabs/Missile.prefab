@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 20
   missileSpeed: 8
-  missileDuration: 4
+  missileDuration: 5
   trackTimerlimit: 3
 --- !u!82 &4055611998275067398
 AudioSource:

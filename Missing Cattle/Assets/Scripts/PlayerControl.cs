@@ -147,6 +147,11 @@ public class PlayerControl : MonoBehaviour
             // player.gravityScale = 30;
             isShipHit = true;
         }
+        if (collision.gameObject.tag == "Ammo")
+        {
+            isTargetAchived = true;
+            ReplenishBombs();
+        }
     }
 
     void FreezeShipControls()
@@ -164,8 +169,8 @@ public class PlayerControl : MonoBehaviour
                 break;
             case 1:
                 Debug.Log("Ding!");
-                AudioSource.PlayClipAtPoint(collectedCattle, Camera.main.transform.position);
-                // soundSource.PlayOneShot(collectedCattle);
+                // AudioSource.PlayClipAtPoint(collectedCattle, Camera.main.transform.position);
+                soundSource.PlayOneShot(collectedCattle);
                 break;
             case 2:
                 SoundDelay(shipDrone);
@@ -199,8 +204,8 @@ public class PlayerControl : MonoBehaviour
     {
         if(isTargetAchived)
         {
-            // soundSource.PlayOneShot(bombReplenished);
-            AudioSource.PlayClipAtPoint(bombReplenished, Camera.main.transform.position);
+            soundSource.PlayOneShot(bombReplenished);
+            // AudioSource.PlayClipAtPoint(bombReplenished, Camera.main.transform.position);
             for (int i = 0; i < bombInitCount; i++ ){
                 bombsAvailable[i].gameObject.SetActive(true);
             }

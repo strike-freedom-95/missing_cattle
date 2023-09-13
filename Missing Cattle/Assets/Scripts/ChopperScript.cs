@@ -28,8 +28,7 @@ public class ChopperScript : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
-        
+    {        
         if (GameObject.Find("Player") != null)
         {
             player = GameObject.FindGameObjectWithTag("Player");

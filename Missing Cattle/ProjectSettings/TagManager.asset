@@ -11,6 +11,10 @@ TagManager:
   - Enemy
   - Bullet
   - Bomb
+  - Follow
+  - Barrier
+  - Boss
+  - Ammo
   layers:
   - Default
   - TransparentFX
@@ -22,9 +26,9 @@ TagManager:
   - Ground
   - Missile
   - Enemy
-  - 
-  - 
-  - 
+  - Bullet
+  - Barrier
+  - Ammo
   - 
   - 
   - 
@@ -54,6 +58,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ammo
+    uniqueID: 600810849
+    locked: 0
   - name: Ground
     uniqueID: 3754732991
     locked: 0
@@ -65,4 +72,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3504027591
+    locked: 0
+  - name: Bullet
+    uniqueID: 1294227591
+    locked: 0
+  - name: Barrier
+    uniqueID: 2464076597
     locked: 0

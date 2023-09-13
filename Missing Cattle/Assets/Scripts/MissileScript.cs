@@ -36,21 +36,23 @@ public class MissileScript : MonoBehaviour
             distance = Vector2.Distance(transform.position, player.transform.position);
             if (distance < range)
             {
-                
-                if (!isMissileDestroyed && !disableTracking)
+                if(!isMissileDestroyed)
                 {
-                    Vector2 direction = player.transform.position - transform.position;
-                    direction.Normalize();
-                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-                    transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-                    // rb.AddForce(new Vector2(direction.x * 5, direction.y * 5));
-                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, missileSpeed * Time.deltaTime);
-                    // transform.Translate(transform.up * Time.deltaTime * missileSpeed);
-                }
-                else
-                {
-                     transform.Translate(new Vector2(0, Time.deltaTime * missileSpeed));
-                }
+                    if (!disableTracking)
+                    {
+                        Vector2 direction = player.transform.position - transform.position;
+                        direction.Normalize();
+                        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+                        transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+                        // rb.AddForce(new Vector2(direction.x * 5, direction.y * 5));
+                        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, missileSpeed * Time.deltaTime);
+                        // transform.Translate(transform.up * Time.deltaTime * missileSpeed);
+                    }
+                    else
+                    {
+                        transform.Translate(new Vector2(0, Time.deltaTime * missileSpeed));
+                    }
+                }   
 
             }
 
@@ -68,7 +70,6 @@ public class MissileScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        MissileDestruction();
         if(collision.gameObject.tag == "Water")
         {
             animator.SetBool("isSplashed", true);
@@ -77,18 +78,18 @@ public class MissileScript : MonoBehaviour
         {
             animator.SetBool("isContacted", true);
         }
+        MissileDestruction();
     }
 
     void MissileDestruction()
-    {
-        Destroy(gameObject, 0.5f);
+    {        
         transform.Translate(0, 0, 0);
         isMissileDestroyed = true;
         rb.gravityScale = 0f;
         rb.velocity = Vector3.zero;
+        rb.bodyType=RigidbodyType2D.Static;
         audioSource.Play();
-            
-
+        Destroy(gameObject, 0.5f);
     }
 
     private void FixedUpdate()

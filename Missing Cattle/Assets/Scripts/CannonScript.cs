@@ -18,6 +18,7 @@ public class CannonScript : MonoBehaviour
     GameObject player;
     public double shootTime;
     AudioSource cannonSoundSource;
+    bool beyondLimits = false;
 
     void Start()
     {
@@ -34,11 +35,16 @@ public class CannonScript : MonoBehaviour
             distance = Vector2.Distance(transform.position, player.transform.position);
             Vector2 direction = player.transform.position - transform.position;
             direction.Normalize();
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;            
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+
+            if (!beyondLimits)
+            {
+                transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+            }
 
             if (angle >= -90 && angle <= 90)
             {
-                transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+                beyondLimits = false;
                 if (distance < range)
                 {
                     Shoot();
@@ -51,6 +57,7 @@ public class CannonScript : MonoBehaviour
             }
             else
             {
+                beyondLimits = true;
                 gunFire.SetActive(false);
             }
         }
